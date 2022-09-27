@@ -13,4 +13,5 @@ sudo docker build . -t java-app
 # Run container
 docker container run --name java-app -p 8000:8000 java-app
 
-![Screenshot (151)](https://user-images.githubusercontent.com/62904201/192646229-b65af816-137f-4454-8945-766a09c3bdfa.png)
+![image](https://user-images.githubusercontent.com/62904201/192646341-ba00aa33-11b7-4129-ace9-09e489182388.png)
+
