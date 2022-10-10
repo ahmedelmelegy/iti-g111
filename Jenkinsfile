@@ -23,14 +23,18 @@ pipeline {
         }
     }
 
-    // stage('build package') {
-    //     steps {
-    //         sh 'mvn clean package'
-    //     }
-    // }
-    // stage('build image') {
-    //     steps {
-    //     // One or more steps need to be included within the steps block.
-    //     }
+    stage('build package') {
+        steps {
+            sh 'mvn clean package'
+        }
+    }
+    stage('build image') {
+        steps {
+            sh("""
+                docker build -t ahmedelmelegy3570/iti-g111 .
+                docker images -a
+                docker push ahmedelmelegy3570/iti-g111
+            """)
+        }
     }
 }
