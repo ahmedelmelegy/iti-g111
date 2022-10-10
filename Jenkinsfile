@@ -35,6 +35,7 @@ pipeline {
                 docker images -a
                 docker push ahmedelmelegy3570/iti-g111
             """)
+            }
         }
     }
 }
