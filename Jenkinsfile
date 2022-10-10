@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
     stages {
         stage('Checkout') {
             steps {
@@ -9,18 +8,26 @@ pipeline {
             }
         }
 
-    // stage('build') {
+
+    stage('test') {
+        steps {
+            sh 'mvn test'
+        }
+        post {
+            always {
+            junit(
+                allowEmptyResults: true,
+                testResults: '*/test-reports/.xml'
+                )
+            }
+        }
+    }
+
+    // stage('build package') {
     //     steps {
-    //         mvn 
+    //         sh 'mvn clean package'
     //     }
     // }
-
-    // stage('test') {
-    //     steps {
-    //     // One or more steps need to be included within the steps block.
-    //     }
-    // }
-
     // stage('build image') {
     //     steps {
     //     // One or more steps need to be included within the steps block.
