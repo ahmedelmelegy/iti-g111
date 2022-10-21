@@ -7,5 +7,5 @@
 # make artifact
 FROM openjdk:11-jre-slim
 # COPY --from=build /usr/app/target/iti-g111-1.0.0.jar /usr/local/lib/iti-g111-1.0.0.jar
-COPY /target/*.jar /usr/local/lib
+COPY target/*.jar /usr/local/lib
 ENTRYPOINT ["java","-jar","/usr/local/lib/*.jar"]
